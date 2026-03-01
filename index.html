@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4P6V82GN2X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4P6V82GN2X');
+</script>
+    <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a45fefa97f6f2dfc7bff7b8fdc765c58/script.js"></script> <!-- End cookieyes banner -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parafarmacia Santa Rita</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.bunny.net/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body, p, a, span, button, h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif !important; 
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                
+                <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <img src="images/logo.png" alt="Logo Parafarmacia" class="w-14 h-14 mr-3 object-contain" onerror="this.style.display='none'">
+                    <div class="flex flex-col items-center">
+                        <h2 class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Parafarmacia</h2>
+                        <h1 class="text-2xl font-bold text-sky-600 leading-none tracking-tight">Santa Rita</h1>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="navigateTo('home')" class="nav-link text-sm font-medium uppercase tracking-wider text-slate-500 hover:text-sky-500 transition-colors" data-target="home">Home</button>
+                    <button onclick="navigateTo('services')" class="nav-link text-sm font-medium uppercase tracking-wider text-slate-500 hover:text-sky-500 transition-colors" data-target="services">Reparti</button>
+                    <button onclick="navigateTo('pharmacy-services')" class="nav-link text-sm font-medium uppercase tracking-wider text-slate-500 hover:text-sky-500 transition-colors" data-target="pharmacy-services">Servizi</button>
+                    <button onclick="navigateTo('social')" class="nav-link text-sm font-medium uppercase tracking-wider text-slate-500 hover:text-sky-500 transition-colors" data-target="social">Eventi/Social</button>
+                    <button onclick="navigateTo('contacts')" class="nav-link text-sm font-medium uppercase tracking-wider text-slate-500 hover:text-sky-500 transition-colors" data-target="contacts">Contatti</button>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-sky-600 focus:outline-none">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigateTo('home')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">Home</button>
+                <button onclick="navigateTo('services')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">Reparti</button>
+                <button onclick="navigateTo('pharmacy-services')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">Servizi</button>   
+                <button onclick="navigateTo('social')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">Eventi/Social</button>
+                <button onclick="navigateTo('contacts')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">Contatti</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+
+        <section id="home" class="page-section active">
+            <div class="relative w-full h-[450px] md:h-[650px] overflow-hidden bg-slate-100 group">
+                <div id="carousel-container"></div>
+                              <button 
+  onclick="prevSlide()"
+  class="absolute left-4 top-1/2 -translate-y-1/2 
+         p-2 rounded-full 
+         bg-white/40 backdrop-blur-sm 
+         text-gray-600 
+         hover:bg-white/70 hover:text-sky-600 
+         shadow-sm 
+         opacity-0 group-hover:opacity-80 
+         transition-all duration-300 
+         z-10">
+  <i data-lucide="chevron-left" class="w-5 h-5"></i>
+</button>
+
+<button 
+  onclick="nextSlide()"
+  class="absolute right-4 top-1/2 -translate-y-1/2 
+         p-2 rounded-full 
+         bg-white/40 backdrop-blur-sm 
+         text-gray-600 
+         hover:bg-white/70 hover:text-sky-600 
+         shadow-sm 
+         opacity-0 group-hover:opacity-80 
+         transition-all duration-300 
+         z-10">
+  <i data-lucide="chevron-right" class="w-5 h-5"></i>
+</button>
+                <div id="carousel-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10"></div>
+            </div>
+
+            <section class="py-24 bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        
+                        <div class="space-y-6">
+                            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">
+                                La Nostra Storia
+                            </h2>
+                            <div class="w-20 h-1.5 bg-sky-500 rounded-full"></div>
+                            
+                            <div class="text-lg text-slate-600 leading-relaxed space-y-5">
+                                <p>
+                                    La Parafarmacia Santa Rita nasce nel febbraio 2018 come realtà a conduzione familiare. Il dottor Antonino Cellura, farmacista con oltre quarant’anni di esperienza e già titolare della Farmacia Mirafiori di Torino, ha deciso di avviare questa nuova attività insieme ai figli, Gianni e Grazia, entrambi farmacisti, nel suo paese di residenza, Pino Torinese.
+                                </p>
+                                <p>
+                                    Nel 2019 la direzione è passata alla dottoressa Grazia Cellura, che ha raccolto l’eredità professionale del padre con l’obiettivo di far crescere e caratterizzare la parafarmacia. Il suo percorso si è orientato in particolare verso un approccio attento e consapevole al benessere naturale, sviluppando reparti dedicati alla dermocosmesi, all’omeopatia, alla fitoterapia e all’erboristeria, senza trascurare l’ambito veterinario, per offrire un servizio completo e vicino alle diverse esigenze della persona e della famiglia.
+                                </p>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <button onclick="navigateTo('contacts')" class="px-8 py-3 bg-sky-50 text-sky-600 hover:bg-sky-600 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center gap-2 w-fit">
+                                    Vieni a trovarci <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    <div class="relative group/slider mt-10 lg:mt-0">
+                            
+                            <div class="absolute -inset-4 bg-sky-100/70 rounded-3xl transform rotate-3 transition-transform duration-700 z-0 hidden sm:block"></div>
+                            
+                     <div id="story-slider" class="relative z-10 flex overflow-x-auto gap-4 sm:gap-6 pb-4 select-none cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                                
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma1.webp" alt="Storia 1" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma2.webp" alt="Storia 2" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma3.webp" alt="Storia 3" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma4.webp" alt="Storia 4" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma5.webp" alt="Storia 5" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+                                
+                                <div class="shrink-0 w-[90%] sm:w-[80%] md:w-[60%] h-[450px] sm:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+                                    <img src="images/farma6.webp" alt="Storia 6" draggable="false" class="w-full h-full object-cover pointer-events-none">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="services" class="page-section">
+            <div class="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">I Nostri Reparti</h2>
+                        <p class="mt-4 text-xl text-slate-500">Professionalità e cura per ogni tua esigenza.</p>
+                    </div>
+                    <div id="services-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+                </div>
+            </div>
+        </section>
+
+    <section id="pharmacy-services" class="page-section">
+            <div class="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">I Nostri Servizi</h2>
+                        <p class="mt-4 text-xl text-slate-500">Scopri tutte le prestazioni che offriamo.</p>
+                    </div>
+                    
+                    <div id="pharmacy-services-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-4"></div>
+
+                    <div class="mt-20 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-3xl shadow-xl overflow-hidden relative">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-900/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+                        
+                        <div class="relative z-10 p-8 md:p-12 text-center flex flex-col items-center">
+                            <h3 class="text-3xl font-bold text-white mb-4">Hai bisogno di maggiori informazioni?</h3>
+                            <p class="text-emerald-50 text-lg mb-8 max-w-2xl">Il nostro staff è a tua completa disposizione per chiarire qualsiasi dubbio sui nostri servizi o per aiutarti a prenotare un appuntamento in sede.</p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="https://wa.me/393333243913" target="_blank" class="px-8 py-3 bg-white text-emerald-600 font-bold rounded-full shadow-lg hover:bg-slate-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i> Scrivici su WhatsApp
+                                </a>
+                                <button onclick="navigateTo('contacts')" class="px-8 py-3 bg-emerald-700/40 text-white font-bold rounded-full border border-emerald-400/30 hover:bg-emerald-700 hover:border-emerald-500 transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i data-lucide="phone" class="w-5 h-5"></i> Contattaci
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="social" class="page-section">
+            <div class="min-h-screen bg-slate-50 py-16 px-4">
+                <div class="max-w-7xl mx-auto space-y-16">
+                    
+                    <div>
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-slate-800">Eventi e promozioni</h2>
+                            <p class="mt-4 text-slate-500 text-lg">Scopri le ultime novità della parafarmacia.</p>
+                            <div class="w-20 h-1.5 bg-sky-500 rounded-full mx-auto mt-6"></div>
+                        </div>
+                        <div id="social-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"></div>
+                    </div>
+
+                    <div class="pt-12 border-t border-slate-200">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-bold text-slate-800">Seguici sui Social</h2>
+                            <p class="mt-4 text-slate-500">Rimani sempre aggiornato su promozioni ed eventi.</p>
+                            <div class="flex justify-center gap-4 mt-6">
+                                <a href="https://www.facebook.com/parafarmacia.pino" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md"><i data-lucide="facebook" class="w-5 h-5"></i> Facebook</a>
+                                <a href="https://www.instagram.com/parafarmacia_santarita" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition shadow-md"><i data-lucide="instagram" class="w-5 h-5"></i> Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="page-section">
+            <div class="min-h-screen bg-slate-50 py-12 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="space-y-8">
+                            <div>
+                                <h2 class="text-3xl font-bold text-slate-800 mb-6">Contattaci</h2>
+                                <p class="text-slate-600 mb-8">Siamo qui per rispondere a tutte le tue domande.</p>
+                            </div>
+<div class="grid gap-4 sm:gap-6 w-full max-w-full">
+                                
+                                <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                                    <div class="p-3 bg-sky-100 text-sky-600 rounded-lg group-hover:bg-sky-600 group-hover:text-white transition-colors shrink-0">
+                                        <i data-lucide="map-pin"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-bold text-slate-800">Dove Siamo</h3>
+                                        <a href="https://maps.google.com/?q=Via+Roma+100+10025+Pino+Torinese+TO" target="_blank" class="text-slate-600 hover:text-sky-600 transition-colors block leading-tight sm:leading-normal">
+                                            Via Roma, 100, 10025 Pino Torinese (TO)
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                                    <div class="p-3 bg-sky-100 text-sky-600 rounded-lg group-hover:bg-sky-600 group-hover:text-white transition-colors shrink-0">
+                                        <i data-lucide="phone"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-bold text-slate-800">Telefono</h3>
+                                        <a href="tel:011840819" class="text-slate-600 hover:text-sky-600 transition-colors block truncate">011 840819</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                                    <div class="p-3 bg-green-100 text-green-600 rounded-lg group-hover:bg-green-600 group-hover:text-white transition-colors shrink-0">
+                                        <i data-lucide="message-circle"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-bold text-slate-800">WhatsApp</h3>
+                                        <a href="https://wa.me/393333243913" target="_blank" class="text-slate-600 hover:text-green-600 font-medium transition-colors flex flex-wrap items-center gap-2">
+                                            333 3243913 <span class="text-[10px] sm:text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full whitespace-nowrap mt-1 sm:mt-0">Scrivici!</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
+                                    <div class="p-3 bg-sky-100 text-sky-600 rounded-lg group-hover:bg-sky-600 group-hover:text-white transition-colors shrink-0">
+                                        <i data-lucide="mail"></i>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h3 class="font-bold text-slate-800">Email</h3>
+                                        <a href="mailto:farmahousepinots@gmail.com" class="text-slate-600 hover:text-sky-600 transition-colors block break-all">farmahousepinots@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+    
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden h-full min-h-[450px]">
+                           <iframe width="100%" height="100%" style="border:0; min-height: 450px;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Parafarmacia+Santa+Rita+Pino+Torinese&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy-policy" class="page-section">
+            <div class="min-h-screen bg-slate-50 py-16 px-4">
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100">
+                    
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">Privacy Policy</h2>
+                    <div class="w-20 h-1.5 bg-sky-500 rounded-full mb-8"></div>
+                    
+                    <div class="prose prose-slate max-w-none text-slate-600 space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">1. Titolare del Trattamento</h3>
+                            <p>Ai sensi del Regolamento (UE) 2016/679 (GDPR), il Titolare del trattamento dei dati personali è:<br>
+                            <strong>FARMA HOUSE S.R.L. (Parafarmacia Santa Rita)</strong><br>
+                            P.IVA 08927030018<br>
+                            Via Roma, 100, 10025 Pino Torinese (TO)<br>
+                            Email: farmahousepinots@gmail.com</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">2. Finalità del trattamento e Base Giuridica</h3>
+                            <p>Il nostro sito ha finalità puramente informative. Raccogliamo e trattiamo i dati personali degli utenti (come nome, indirizzo email o numero di telefono) solo in caso di contatto volontario. Le finalità del trattamento sono:</p>
+                            <ul class="list-disc pl-5 mt-2 space-y-2">
+                                <li>Rispondere alle richieste di informazioni inviate tramite i canali indicati sul sito (email, telefono, WhatsApp).</li>
+                                <li>Gestire eventuali prenotazioni di prodotti da ritirare in sede o richieste di consegna a domicilio.</li>
+                            </ul>
+                            <p class="mt-4">La base giuridica che legittima questo trattamento è il <strong>consenso</strong> espresso dall'utente nel momento in cui decide liberamente di contattarci, nonché l'esecuzione di misure precontrattuali adottate su richiesta dello stesso.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">3. Natura del conferimento dei dati</h3>
+                            <p>Il conferimento dei dati per contattarci è del tutto facoltativo. Tuttavia, la mancata o errata comunicazione delle informazioni di contatto impedirà al Titolare di rispondere in modo tempestivo alle richieste.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">4. Destinatari dei dati</h3>
+                            <p>I dati personali non saranno venduti o diffusi. Potranno essere accessibili solo al personale autorizzato del Titolare e a fornitori di servizi terzi (es. provider di posta elettronica o servizi di hosting) che agiscono come Responsabili del Trattamento per garantire il funzionamento dei canali di comunicazione.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">5. Periodo di conservazione</h3>
+                            <p>I dati personali non sono conservati per un periodo di tempo indefinito. Saranno conservati solo per il tempo strettamente necessario a raggiungere lo scopo per cui sono stati raccolti (es. per gestire la richiesta di assistenza).</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">6. Diritti degli interessati</h3>
+                            <p>In ogni momento, l'utente ha il diritto di esercitare i propri diritti sui dati, tra cui: il diritto di accesso, di rettifica, di cancellazione, di limitazione del trattamento, di portabilità dei dati e di opposizione.<br>
+                            Per esercitare tali diritti, è sufficiente contattare il Titolare all'indirizzo email indicato. L'utente ha inoltre il diritto di presentare un reclamo all'Autorità Garante per la Protezione dei Dati Personali.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-slate-100 text-center">
+                        <button onclick="navigateTo('home')" class="px-8 py-3 bg-slate-100 text-slate-600 hover:bg-sky-500 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center gap-2 mx-auto">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Torna alla Home
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+       <section id="cookie-policy" class="page-section">
+            <div class="min-h-screen bg-slate-50 py-16 px-4">
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100">
+                    
+                    <h2 class="text-3xl font-bold text-slate-800 mb-6">Cookie Policy</h2>
+                    <div class="w-20 h-1.5 bg-sky-500 rounded-full mb-8"></div>
+                    
+                    <div class="prose prose-slate max-w-none text-slate-600 space-y-8">
+                        
+                        <div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-6">1. Cosa sono i cookie?</h2>
+                            <p>I cookie sono piccoli file di testo che i siti web visitati inviano e registrano sul dispositivo (computer, tablet, smartphone o qualsiasi altro dispositivo connesso) dell'utente, per poi essere ritrasmessi agli stessi siti alla successiva visita. Questi file contengono informazioni che possono variare in base alla loro funzione: possono memorizzare le preferenze dell'utente (come la lingua o le impostazioni di visualizzazione), tracciare le sessioni di navigazione, rendere l'esperienza online più efficiente e personalizzata o raccogliere dati per finalità statistiche e di marketing.</p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-6">2. Tipi di cookie utilizzati sul nostro sito</h3>
+                            
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">Cookie Tecnici</h3>Questa tipologia di cookie permette il corretto funzionamento del Sito ed è esente dalla richiesta di consenso. Utilizziamo il cookie <code>cookieyes-consent</code> (durata: 6 mesi) esclusivamente per ricordare le preferenze di consenso espresse dall'utente tramite il nostro banner.
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">Cookie Analitici di Terze Parti</h3>Questa categoria di cookie serve a raccogliere dati statistici e in forma aggregata relativi all’utilizzo del nostro sito web (come ad esempio le pagine più consultate, la durata delle visite e la provenienza geografica degli utenti). Sul nostro portale ci avvaliamo dei servizi di Google Analytics. Essendo gestiti da fornitori esterni, tali cookie vengono trasmessi da server e domini estranei al nostro sito.
+                               <h3 class="text-xl font-bold text-slate-800 mb-2">Cookie per l'Integrazione di Servizi e Software Esterni</h3>Questa categoria di cookie integra funzionalità sviluppate da soggetti terzi all'interno delle pagine di parafarmaciasantarita.it, quali, a titolo esemplificativo, le icone e le preferenze espresse nei principali social network, consentendo la condivisione dei contenuti del sito o l'utilizzo di servizi software di terze parti (come i software per la generazione di mappe e i moduli di login per i canali social). Tali cookie sono inviati da domini di terze parti che offrono le proprie funzionalità tra le pagine di parafarmaciasantarita.it.
+                
+                        </div>
+
+                        <div>
+                            <p>parafarmaciasantarita.it, in conformità alla normativa vigente, non è tenuto a richiedere il consenso per i cookie tecnici e di analytics anonimizzati, in quanto necessari per l'erogazione dei servizi richiesti.</p>
+                            <p class="mt-4">Per tutte le altre tipologie di cookie, il consenso può essere espresso dall'Utente mediante una o più delle seguenti modalità:</p>
+                                <ul>
+                                <li>Tramite specifiche configurazioni del browser utilizzato o dei relativi programmi informatici impiegati per la navigazione delle pagine che compongono parafarmaciasantarita.it.</li>
+                                <li>Mediante la modifica delle impostazioni relative all'uso dei servizi di terze parti.</li>
+                                </ul>
+                            <p class="mt-4 text-sm bg-slate-50 p-4 rounded-lg">Si precisa che l'adozione di una di tali soluzioni potrebbe precludere all'utente la possibilità di utilizzare o visualizzare determinate sezioni di parafarmaciasantarita.it.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Link a Piattaforme e Siti Web Esterni</h3>
+                            <p>Durante la navigazione potresti trovare dei collegamenti che rimandano a piattaforme di terze parti (come, ad esempio, i nostri profili ufficiali su Facebook e Instagram). Tali portali operano in totale autonomia e dispongono di proprie policy sulla privacy e sull'uso dei cookie, che potrebbero differire dalle nostre. parafarmaciasantarita.it non ha alcun controllo su di essi e, di conseguenza, declina ogni responsabilità in merito alla gestione dei dati effettuata da questi soggetti esterni.</p>
+                        </div>
+
+                        <div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-6">Gestire le preferenze dei cookie</h2>
+                            <p>È possibile modificare le impostazioni del browser per bloccare o eliminare i cookie. Di seguito sono riportati i link ai documenti di assistenza su come gestire ed eliminare i cookie nei principali browser web.
+
+Chrome: https://support.google.com/accounts/answer/32050
+
+Safari: https://support.apple.com/en-in/guide/safari/sfri11471/mac
+
+Firefox: https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox?redirectslug=delete-cookies-remove-info-websites-stored&redirectlocale=en-US
+
+Internet Explorer: https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc
+
+Qualora si stia utilizzando un browser web diverso, si prega di fare riferimento alla documentazione di assistenza ufficiale.</p>
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-slate-100 text-center">
+                        <button onclick="navigateTo('home')" class="px-8 py-3 bg-slate-100 text-slate-600 hover:bg-sky-500 hover:text-white font-semibold rounded-full transition-all duration-300 flex items-center gap-2 mx-auto">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Torna alla Home
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+<footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-white text-lg font-bold mb-4 uppercase">Parafarmacia Santa Rita</h3>
+                <p class="text-sm">Il tuo punto di riferimento per la salute e il benessere.</p>
+            </div>
+            <div>
+                <h3 class="text-white text-lg font-bold mb-4">Link Rapidi</h3>
+                <ul class="space-y-2">
+                    <li><button onclick="navigateTo('home')" class="hover:text-white">Home</button></li>
+                    <li><button onclick="navigateTo('services')" class="hover:text-white">Reparti</button></li>
+                    <li><button onclick="navigateTo('pharmacy-services')" class="hover:text-white">Servizi</button></li>
+                    <li><button onclick="navigateTo('social')" class="hover:text-white">Eventi/Social</button></li>
+                    <li><button onclick="navigateTo('contacts')" class="hover:text-white">Contatti</button></li>
+                </ul>
+            </div>  
+            <div>
+                <h3 class="text-white text-lg font-bold mb-4">Orari</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>Lun-Ven: 8:30-13:00 / 15:00-19:30</li>
+                    <li>Sab: 8:30-13:00 / 16:00-19:00</li>
+                    <li>Dom: <span class="text-sky-400">Chiuso</span></li>
+                </ul>
+            </div>
+        </div>
+
+<div class="text-center mt-12 pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col items-center gap-3">
+            <div class="flex gap-4">
+                <button onclick="navigateTo('privacy-policy')" class="hover:text-white transition-colors uppercase tracking-wider">Privacy Policy</button>
+                <span class="text-slate-600">|</span>
+                <button onclick="navigateTo('cookie-policy')" class="hover:text-white transition-colors uppercase tracking-wider">Cookie Policy</button>
+            </div>
+            <p>© FARMA HOUSE S.R.L. – p.iva 08927030018</p>
+        </div>
+
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/social.js"></script>
+    <script src="js/main.js"></script>
+
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.getElementById('story-slider');
+            if (!slider) return;
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('cursor-grabbing');
+                slider.classList.remove('cursor-grab');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                
+                // TRUCCO 1: Blocca il comportamento nativo del browser (evita l'effetto "selezione fantasma")
+                e.preventDefault();
+            });
+
+            // TRUCCO 2: Ascolta il rilascio del mouse su TUTTA la finestra (window). 
+            // Così, anche se sposti il cursore fuori dalle foto a 100 all'ora e poi lasci il tasto, lo script se ne accorge e si ferma.
+            window.addEventListener('mouseup', () => {
+                if (!isDown) return;
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+                slider.classList.add('cursor-grab');
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // Puoi aumentare o diminuire questo numero per cambiare la sensibilità
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
