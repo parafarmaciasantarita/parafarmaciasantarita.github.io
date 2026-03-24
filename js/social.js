@@ -34,14 +34,14 @@ function initSocial() {
         // POST 1: Reel (DVJdlQpDHK_)
     const post1 = createStaticInstaCard(
         "-",
-        "images/crema.jpg",
+        "images/crema.jpeg",
         "Post Instagram 1"
     );
 
     // POST 2: Immagine (DU8CbR7DCi_)
     const post2 = createStaticInstaCard(
         "-",
-        "images/lierac.jpg",
+        "images/lierac.jpeg",
         "Post Instagram 2"
     );
     
