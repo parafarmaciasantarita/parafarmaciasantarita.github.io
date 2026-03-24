@@ -31,20 +31,20 @@ function initSocial() {
         `;
     }
 
-    // POST 1: Reel (DVJdlQpDHK_)
+        // POST 1: Reel (DVJdlQpDHK_)
     const post1 = createStaticInstaCard(
-        "https://www.instagram.com/p/DU8CbR7DCi_/",
-        "images/festa_donna.webp",
+        "-",
+        "images/crema.jpg",
         "Post Instagram 1"
     );
 
     // POST 2: Immagine (DU8CbR7DCi_)
     const post2 = createStaticInstaCard(
-        "https://www.instagram.com/p/DVLRaJVDJoA/",
-        "images/consulenza.webp",
+        "-",
+        "images/lierac.jpg",
         "Post Instagram 2"
     );
-
+    
     // POST 3: Post originale (DT982GjDAOu)
     const post3 = createStaticInstaCard(
         "https://www.instagram.com/p/DVN7ZwfDH-N/",
