@@ -470,43 +470,46 @@ Qualora si stia utilizzando un browser web diverso, si prega di fare riferimento
     <script src="js/main.js"></script>
 
 <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const slider = document.getElementById('story-slider');
-            if (!slider) return;
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        // AGGIUNGI QUESTA RIGA: Attiva tutte le icone in tutta la pagina!
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
-            let isDown = false;
-            let startX;
-            let scrollLeft;
+        // Il tuo codice per lo slider (rimane invariato)
+        const slider = document.getElementById('story-slider');
+        if (!slider) return;
 
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                slider.classList.add('cursor-grabbing');
-                slider.classList.remove('cursor-grab');
-                startX = e.pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-                
-                // TRUCCO 1: Blocca il comportamento nativo del browser (evita l'effetto "selezione fantasma")
-                e.preventDefault();
-            });
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-            // TRUCCO 2: Ascolta il rilascio del mouse su TUTTA la finestra (window). 
-            // Così, anche se sposti il cursore fuori dalle foto a 100 all'ora e poi lasci il tasto, lo script se ne accorge e si ferma.
-            window.addEventListener('mouseup', () => {
-                if (!isDown) return;
-                isDown = false;
-                slider.classList.remove('cursor-grabbing');
-                slider.classList.add('cursor-grab');
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 1.5; // Puoi aumentare o diminuire questo numero per cambiare la sensibilità
-                slider.scrollLeft = scrollLeft - walk;
-            });
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('cursor-grabbing');
+            slider.classList.remove('cursor-grab');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            e.preventDefault();
         });
-    </script>
+
+        window.addEventListener('mouseup', () => {
+            if (!isDown) return;
+            isDown = false;
+            slider.classList.remove('cursor-grabbing');
+            slider.classList.add('cursor-grab');
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
+</script>
     
 </body>
 
