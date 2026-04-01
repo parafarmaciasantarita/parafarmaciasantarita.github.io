@@ -65,8 +65,8 @@ function initSocial() {
     
     // POST 3: Post originale (cliccabile)
     const post3 = createStaticInstaCard(
-        "https://www.instagram.com/p/DVN7ZwfDH-N/",
-        "images/voltaren.webp",
+        "https://www.instagram.com/p/DWmNz-hjLn6/?hl=it",
+        "images/pelle2.webp",
         "Post Instagram 3"
     );
     
