@@ -51,22 +51,22 @@ function initSocial() {
 
     // POST 1: Solo immagine
     const post1 = createStaticInstaCard(
-        "-",
-        "images/crema.jpeg",
+        "https://www.instagram.com/p/DX_e9l8jPV5/?hl=it",
+        "images/lier.jpg",
         "Post Instagram 1"
     );
 
     // POST 2: Solo immagine
     const post2 = createStaticInstaCard(
-        "-",
-        "images/lierac.jpeg",
+        "https://www.instagram.com/p/DXhJN3wjNxb/?hl=it",
+        "images/trc.jpg",
         "Post Instagram 2"
     );
     
     // POST 3: Post originale (cliccabile)
     const post3 = createStaticInstaCard(
-        "https://www.instagram.com/p/DWmNz-hjLn6/?hl=it",
-        "images/pelle2.webp",
+        "https://www.instagram.com/p/DXwEGYajKGG/?hl=it",
+        "images/event.jpg",
         "Post Instagram 3"
     );
     
