@@ -52,21 +52,21 @@ function initSocial() {
     // POST 1: Solo immagine
     const post1 = createStaticInstaCard(
         "https://www.instagram.com/p/DYwVZXIMljQ/?hl=it",
-        "images/igieneor.jpg",
+        "images/igieneor.wbep",
         "Post Instagram 1"
     );
 
     // POST 2: Solo immagine
     const post2 = createStaticInstaCard(
         "https://www.instagram.com/p/DY35FemIf5l/?hl=it",
-        "images/sconto.jpg",
+        "images/sconto.wbep",
         "Post Instagram 2"
     );
     
     // POST 3: Post originale (cliccabile)
     const post3 = createStaticInstaCard(
         "https://www.instagram.com/p/DYg6t2FsQoU/?hl=it",
-        "images/vichyprom.jpg",
+        "images/vichyprom.wbep",
         "Post Instagram 3"
     );
     
